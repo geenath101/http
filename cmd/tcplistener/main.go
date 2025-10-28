@@ -47,16 +47,9 @@ func getLinesChannel(l net.Conn) chan string {
 		for{
 			b := make([]byte,8)
 			l.Read(b)
-			// if readError ==  io.EOF {
-			// 	//readChannel <- fullLine
-			// 	/break
-			// 	//log.Fatalf("unable to read the line %v",readError)	
-			// }
 			currentString := string(b)
 			splitedString := strings.Split(currentString,"\n")
-			//fmt.Printf("parts %s",splitedString[0])
 			lengthOfString := len(splitedString)
-			//fmt.Println("length of splitted array %v and value ",len(splitedString))
 			fullLine += splitedString[0]
 			//fmt.Printf("*****%s",fullLine)
 			if lengthOfString > 1 {
